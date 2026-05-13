@@ -11,12 +11,12 @@ Mülakata gireceğin şirketin adını, web sitesini veya dokümanlarını yükl
 ## 📸 Arayüzden Görüntüler
 
 <div align="center">
-  <img src="img/screenshot1.png" alt="Arayüz Görseli 1" width="32%">
-  <img src="img/screenshot2.png" alt="Arayüz Görseli 2" width="32%">
-  <img src="img/screenshot3.png" alt="Arayüz Görseli 3" width="32%">
+  <img src="frontend/img/screenshot (1).png" alt="Arayüz Görseli 1" width="32%">
+  <img src="frontend/img/screenshot (2).png" alt="Arayüz Görseli 2" width="32%">
+  <img src="frontend/img/screenshot (3).png" alt="Arayüz Görseli 3" width="32%">
   <br><br>
-  <img src="img/screenshot4.png" alt="Arayüz Görseli 4" width="48%">
-  <img src="img/screenshot5.png" alt="Arayüz Görseli 5" width="48%">
+  <img src="frontend/img/screenshot (4).png" alt="Arayüz Görseli 4" width="48%">
+  <img src="frontend/img/screenshot (5).png" alt="Arayüz Görseli 5" width="48%">
 </div>
 
 ---
