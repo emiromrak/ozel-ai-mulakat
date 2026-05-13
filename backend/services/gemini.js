@@ -2,10 +2,9 @@ const { GoogleGenAI } = require("@google/genai");
 
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
-  httpOptions: { apiVersion: "v1alpha" },
 });
 
-const MODEL = "gemini-3-flash-preview";
+const MODEL = "gemini-2.5-flash";
 
 async function generate(prompt) {
   const response = await ai.models.generateContent({
@@ -116,7 +115,13 @@ Puanlama: 90-100: Mükemmel | 75-89: İyi | 60-74: Orta | 45-59: Geliştirilmeli
  * Tüm testin genel raporunu üretir
  */
 async function generateFinalReport(companyName, position, results) {
-  const avgScore = Math.round(results.reduce((sum, r) => sum + r.score, 0) / results.length);
+  const validResults = (results || []).filter(r => r && typeof r.score === 'number');
+
+  if (validResults.length === 0) {
+    throw new Error("Değerlendirilecek geçerli sonuç bulunamadı.");
+  }
+
+  const avgScore = Math.round(validResults.reduce((sum, r) => sum + r.score, 0) / validResults.length);
 
   const prompt = `
 Sen bir mülakat koçusun. Aşağıdaki mülakat simülasyonu sonuçlarına dayanarak kapsamlı bir değerlendirme raporu hazırla.
@@ -124,10 +129,10 @@ Sen bir mülakat koçusun. Aşağıdaki mülakat simülasyonu sonuçlarına daya
 Şirket: ${companyName}
 Pozisyon: ${position}
 Ortalama Puan: ${avgScore}/100
-Soru Sayısı: ${results.length}
+Soru Sayısı: ${validResults.length}
 
 Sonuçlar:
-${results.map((r, i) => `Soru ${i + 1} (${r.category}): ${r.score}/100`).join("\n")}
+${validResults.map((r, i) => `Soru ${i + 1} (${r.category || 'Genel'}): ${r.score}/100`).join("\n")}
 
 Raporu SADECE JSON formatında ver:
 {

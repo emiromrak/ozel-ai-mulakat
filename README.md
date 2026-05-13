@@ -2,9 +2,22 @@
 
 Mülakata gireceğin şirketin adını, web sitesini veya dokümanlarını yükle — yapay zeka sana özel sorular hazırlasın ve seni test etsin.
 
-![Demo](https://img.shields.io/badge/AI-Gemini%201.5%20Flash-blue?style=flat-square)
-![Stack](https://img.shields.io/badge/Stack-Node.js%20%2B%20Vanilla%20JS-green?style=flat-square)
+![Demo](https://img.shields.io/badge/AI-Gemini%202.5%20Flash-blue?style=flat-square)
+![Stack](https://img.shields.io/badge/Stack-React%20%2B%20Node.js-green?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)
+
+---
+
+## 📸 Arayüzden Görüntüler
+
+<div align="center">
+  <img src="img/screenshot1.png" alt="Arayüz Görseli 1" width="32%">
+  <img src="img/screenshot2.png" alt="Arayüz Görseli 2" width="32%">
+  <img src="img/screenshot3.png" alt="Arayüz Görseli 3" width="32%">
+  <br><br>
+  <img src="img/screenshot4.png" alt="Arayüz Görseli 4" width="48%">
+  <img src="img/screenshot5.png" alt="Arayüz Görseli 5" width="48%">
+</div>
 
 ---
 
@@ -26,27 +39,29 @@ Mülakata gireceğin şirketin adını, web sitesini veya dokümanlarını yükl
 
 ### Adımlar
 
+1. **Repoyu klonlayın:**
 ```bash
-# 1. Repoyu klonla
 git clone https://github.com/kullanici-adi/sirkete_ozel_mulakat.git
 cd sirkete_ozel_mulakat
+```
 
-# 2. Backend bağımlılıklarını yükle
+2. **Backend kurulumunu yapın ve sunucuyu başlatın:**
+```bash
 cd backend
 npm install
-
-# 3. .env dosyasını oluştur
 cp .env.example .env
-# .env dosyasını aç ve GEMINI_API_KEY değerini gir
-
-# 4. Sunucuyu başlat
+# .env dosyasını açın ve GEMINI_API_KEY değerini girin
 npm start
 ```
 
+3. **Yeni bir terminal açıp Frontend kurulumunu yapın ve uygulamayı başlatın:**
+```bash
+cd frontend
+npm install
+npm run dev
 ```
-# 5. Tarayıcıda aç
-http://localhost:3001
-```
+
+Uygulama `http://localhost:5173` adresinde çalışmaya başlayacaktır. Backend sunucunuz ise `3001` portunda çalışmaya devam etmelidir.
 
 ---
 
@@ -56,27 +71,27 @@ http://localhost:3001
 sirkete_ozel_mulakat/
 ├── backend/
 │   ├── server.js              # Express sunucusu
-│   ├── routes/
-│   │   ├── analyze.js         # Şirket analizi + soru üretimi
-│   │   └── evaluate.js        # Cevap değerlendirme + rapor
-│   ├── services/
-│   │   ├── gemini.js          # Google Gemini API wrapper
-│   │   ├── scraper.js         # Web scraping (cheerio)
-│   │   └── fileParser.js      # PDF & DOCX metin çıkarımı
+│   ├── routes/                # API Rotaları (analyze, evaluate)
+│   ├── services/              # Servisler (Gemini, Scraper, FileParser)
 │   ├── uploads/               # Geçici yükleme dizini
 │   ├── .env.example           # Ortam değişkeni şablonu
 │   └── package.json
 └── frontend/
-    ├── index.html             # Ana sayfa
-    ├── style.css              # Premium dark mode tasarım
-    └── app.js                 # Uygulama mantığı
+    ├── index.html             # Ana giriş sayfası
+    ├── vite.config.js         # Vite ayarları
+    ├── package.json
+    └── src/
+        ├── components/        # React bileşenleri (views vb.)
+        ├── store/             # Zustand global state (useAppStore.js)
+        ├── api/               # Backend API istekleri
+        └── assets/            # CSS ve statik dosyalar
 ```
 
 ---
 
 ## 🔑 Ortam Değişkenleri
 
-`backend/.env` dosyasına aşağıdaki değişkenleri gir:
+`backend/.env` dosyasına aşağıdaki değişkenleri girin:
 
 | Değişken | Açıklama | Örnek |
 |---|---|---|
@@ -89,9 +104,9 @@ sirkete_ozel_mulakat/
 
 | Katman | Teknoloji |
 |---|---|
-| Frontend | HTML5, CSS3, Vanilla JavaScript |
+| Frontend | React, Zustand, Vite, CSS |
 | Backend | Node.js, Express.js |
-| AI | Google Gemini 1.5 Flash |
+| AI | Google Gemini 2.5 Flash |
 | Web Scraping | Axios, Cheerio |
 | Dosya İşleme | pdf-parse, mammoth |
 | Dosya Yükleme | multer |
