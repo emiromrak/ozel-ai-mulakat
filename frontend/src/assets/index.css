@@ -1,3 +1,4 @@
+/* ── Google Fonts ── */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
@@ -39,7 +40,7 @@ body::after {
   content: '';
   position: fixed;
   border-radius: 50%;
-  filter: blur(120px);
+  filter: blur(150px);
   pointer-events: none;
   z-index: 0;
 }
@@ -78,6 +79,7 @@ body::after {
   display: flex;
   align-items: center;
   gap: .75rem;
+  cursor: pointer;
 }
 
 .logo-icon {
@@ -87,7 +89,6 @@ body::after {
   background: var(--gradient);
   display: grid;
   place-items: center;
-  font-size: 1.2rem;
 }
 
 .logo-text {
@@ -289,11 +290,6 @@ textarea::placeholder {
   color: var(--success);
   font-size: .85rem;
   font-weight: 500;
-  display: none;
-}
-
-.file-name.visible {
-  display: block;
 }
 
 /* ── DIVIDER ── */
@@ -338,12 +334,12 @@ textarea::placeholder {
 .btn-primary {
   background: var(--gradient);
   color: white;
-  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.35);
+  box-shadow: 0 4px 20px rgba(84, 107, 65, 0.35);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
+  box-shadow: 0 8px 30px rgba(84, 107, 65, 0.5);
 }
 
 .btn-primary:active {
@@ -373,20 +369,16 @@ textarea::placeholder {
 
 /* ── LOADING ── */
 .loading-overlay {
-  display: none;
   position: fixed;
   inset: 0;
   background: rgba(13, 18, 10, 0.92);
   backdrop-filter: blur(8px);
   z-index: 999;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-}
-
-.loading-overlay.active {
-  display: flex;
 }
 
 .spinner {
@@ -603,11 +595,6 @@ textarea::placeholder {
   border-radius: 16px;
   padding: 1.5rem;
   margin-top: 1.25rem;
-  display: none;
-}
-
-.evaluation-card.visible {
-  display: block;
   animation: fadeUp .4s ease;
 }
 
@@ -637,9 +624,6 @@ textarea::placeholder {
   flex-shrink: 0;
   display: grid;
   place-items: center;
-  font-size: 1.35rem;
-  font-weight: 800;
-  background: conic-gradient(var(--accent) var(--pct, 0%), var(--bg-card) 0%);
 }
 
 .score-inner {
@@ -649,6 +633,8 @@ textarea::placeholder {
   background: var(--bg-secondary);
   display: grid;
   place-items: center;
+  font-size: 1.35rem;
+  font-weight: 800;
 }
 
 .score-details h4 {
@@ -721,7 +707,6 @@ textarea::placeholder {
   margin: 0 auto 1rem;
   display: grid;
   place-items: center;
-  background: conic-gradient(var(--accent) var(--score-pct, 0%), var(--bg-card) 0%);
 }
 
 .big-score-inner {
@@ -729,9 +714,10 @@ textarea::placeholder {
   height: 96px;
   border-radius: 50%;
   background: var(--bg-card);
-  display: grid;
-  place-items: center;
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .big-score-inner .score-val {
@@ -821,18 +807,8 @@ textarea::placeholder {
   color: var(--text-secondary);
 }
 
-/* ── VIEWS ── */
-.view {
-  display: none;
-}
-
-.view.active {
-  display: block;
-  animation: fadeUp .35s ease;
-}
-
 /* ── TOAST ── */
-#toast {
+.toast {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
@@ -843,19 +819,24 @@ textarea::placeholder {
   border-radius: 12px;
   font-size: .9rem;
   font-weight: 500;
-  transform: translateY(100px);
-  opacity: 0;
-  transition: all .3s ease;
+  animation: toastIn .3s ease forwards;
   max-width: 340px;
 }
 
-#toast.show {
-  transform: translateY(0);
-  opacity: 1;
+.toast.success-toast {
+  background: var(--success);
 }
 
-#toast.success-toast {
-  background: var(--success);
+@keyframes toastIn {
+  from {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* ── FOOTER ── */
@@ -913,8 +894,14 @@ textarea::placeholder {
     gap: 1rem;
     padding: 1.5rem 1rem;
   }
+
   .footer-left {
     flex-direction: column;
     gap: .5rem;
   }
+}
+
+/* ── VIEW transition ── */
+.view-enter {
+  animation: fadeUp .35s ease;
 }

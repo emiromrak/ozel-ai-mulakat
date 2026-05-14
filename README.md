@@ -11,12 +11,12 @@ Mülakata gireceğin şirketin adını, web sitesini veya dokümanlarını yükl
 ## 📸 Arayüzden Görüntüler
 
 <div align="center">
-  <img src="frontend/img/screenshot (1).png" alt="Arayüz Görseli 1" width="32%">
-  <img src="frontend/img/screenshot (2).png" alt="Arayüz Görseli 2" width="32%">
-  <img src="frontend/img/screenshot (3).png" alt="Arayüz Görseli 3" width="32%">
+  <img src="frontend/public/img/screenshot (1).png" alt="Arayüz Görseli 1" width="32%">
+  <img src="frontend/public/img/screenshot (2).png" alt="Arayüz Görseli 2" width="32%">
+  <img src="frontend/public/img/screenshot (3).png" alt="Arayüz Görseli 3" width="32%">
   <br><br>
-  <img src="frontend/img/screenshot (4).png" alt="Arayüz Görseli 4" width="48%">
-  <img src="frontend/img/screenshot (5).png" alt="Arayüz Görseli 5" width="48%">
+  <img src="frontend/public/img/screenshot (4).png" alt="Arayüz Görseli 4" width="48%">
+  <img src="frontend/public/img/screenshot (5).png" alt="Arayüz Görseli 5" width="48%">
 </div>
 
 ---
@@ -81,10 +81,10 @@ sirkete_ozel_mulakat/
     ├── vite.config.js         # Vite ayarları
     ├── package.json
     └── src/
-        ├── components/        # React bileşenleri (views vb.)
-        ├── store/             # Zustand global state (useAppStore.js)
-        ├── api/               # Backend API istekleri
-        └── assets/            # CSS ve statik dosyalar
+        ├── components/        # React bileşenleri
+        ├── api/               # API servisleri
+        ├── assets/            # CSS (index.css)
+        └── store/             # Global state (Zustand)
 ```
 
 ---
